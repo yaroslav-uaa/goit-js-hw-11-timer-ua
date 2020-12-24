@@ -1,5 +1,4 @@
 import refs from './refs.js';
-console.log(refs);
 
 class CountdownTimer {
   constructor({ selector, targetDate }) {
