@@ -25,8 +25,7 @@ body {
 }
 
 .box-rotate {
-  position: relative;
-  width: 300px;
+  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px blue;
 }
 
 .main {
@@ -36,7 +35,7 @@ body {
 }
 .timer {
   position: absolute;
-  @media screen and (orientation: landscape) and (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -128,9 +127,7 @@ body {
 }
 .footer {
   display: flex;
-  max-width: 400px;
   padding: 10px 20px;
   font-size: 1rem;
-  position: relative;
   text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px blue;
 }
