@@ -35,23 +35,15 @@ class CountdownTimer {
   timeFinish(time) {
     if (time < 0) {
       clearInterval(this.setInt);
-      refs.timerRef.textContent =
-        '“When you meet someone special, you will know. You will start smiling for no reason and will be happy.”';
+      refs.timerRef.textContent = '"So.... Have a good meeting”';
+      refs.timerRef.style.textShadow =
+        '0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rebeccapurple';
+      refs.timerRef.style.fontSize = '50px';
     }
   }
 }
-// Плагін
+// Плагін тут змінюємо дату на вам потрібну)))
 new CountdownTimer({
   selector: '#timer-1',
   targetDate: new Date('Dec 27, 12:00:00 2020'),
-});
-
-// Дадаю музончік
-
-refs.music.addEventListener('click', () => {
-  refs.music.disabled = true;
-  const kaleoRef = document.querySelector('.audio');
-  // const smtSound = require('../audio/kaleo.mp3');
-  // const sound = new Audio('../audio/kaleo.mp3');
-  kaleoRef.play();
 });

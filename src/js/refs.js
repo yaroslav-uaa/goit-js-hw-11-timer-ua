@@ -4,8 +4,7 @@ export default {
   hours: document.querySelector('[data-value="hours"]'),
   mins: document.querySelector('[data-value="mins"]'),
   seconds: document.querySelector('[data-value="secs"]'),
-  start: document.querySelector('[data-action="start"]'),
-  stop: document.querySelector('[data-action="stop"]'),
-  music: document.querySelector('.example_a'),
+  musicPlay: document.querySelector('.example_a'),
+  musicMute: document.querySelector('.example_b'),
 };
 //
