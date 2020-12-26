@@ -53,5 +53,5 @@ refs.music.addEventListener('click', () => {
   const kaleoRef = document.querySelector('.audio');
   // const smtSound = require('../audio/kaleo.mp3');
   // const sound = new Audio('../audio/kaleo.mp3');
-  kaleoRef.pause();
+  kaleoRef.play();
 });
