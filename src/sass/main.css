@@ -76,6 +76,12 @@ body {
   }
 }
 
+@media screen and (min-width: 480px) {
+  .timer {
+    top: 50%;
+  }
+}
+
 .field {
   display: inline-block;
   vertical-align: top;
