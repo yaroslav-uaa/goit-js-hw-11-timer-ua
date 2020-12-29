@@ -27,7 +27,7 @@ class CountdownTimer {
   }
   //  Функція закінчення таймера !
   timeFinish(time) {
-    if (time < 0) {
+    if (this.targetDate - Date.now() < 0) {
       clearInterval(this.setInt);
       refs.timerRef.textContent = '"So.... Have a good meeting”';
       refs.timerRef.style.textShadow =
@@ -44,6 +44,6 @@ class CountdownTimer {
 // Плагін тут змінюємо дату на вам потрібну)))
 const timer = new CountdownTimer({
   selector: '#timer-1',
-  targetDate: new Date('Dec 27, 12:00:00 2020'),
+  targetDate: new Date('Jan 01, 00:00:00 2021'),
 });
 timer.updateClockface();
