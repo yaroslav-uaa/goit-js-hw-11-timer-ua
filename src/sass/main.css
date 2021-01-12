@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap');
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -16,16 +16,16 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 100vh;
   margin: 0;
   font-family: 'Sansita Swashed', 'Open Sans', sans-serif, cursive;
   background: #222;
-  background-image: url("https://source.unsplash.com/collection/263695/couple/?landscape");
+  background-image: url('https://source.unsplash.com/collections/1526720/new-year');
   background-size: cover;
   font-size: 110%;
 }
@@ -36,7 +36,8 @@ body {
 
 .main {
   font-size: 120%;
-  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rebeccapurple;
+  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white,
+    0 0 20px rebeccapurple;
 }
 
 .timer {
@@ -47,7 +48,7 @@ body {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   text-align: center;
   font-family: 'Sansita Swashed', 'Open Sans', sans-serif, cursive;
 }
