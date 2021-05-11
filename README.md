@@ -2,7 +2,7 @@
 
 # Meet Me (Romantic timer)
 
-> My project from hw of React GOIT.
+> My project from hw of GOIT.
 
 ![screenshot](./src/images/infoReadME.png)
 
