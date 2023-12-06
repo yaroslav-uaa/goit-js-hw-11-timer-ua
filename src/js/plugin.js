@@ -44,6 +44,6 @@ class CountdownTimer {
 // Плагін тут змінюємо дату на вам потрібну)))
 const timer = new CountdownTimer({
   selector: '#timer-1',
-  targetDate: new Date('Dec 31, 23:59:59 2021'),
+  targetDate: new Date('Dec 31, 23:59:59 2023'),
 });
 timer.updateClockface();
