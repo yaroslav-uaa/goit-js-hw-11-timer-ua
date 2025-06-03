@@ -3,55 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meet me!</title>
+    <meta name="description" content="Romantic countdown timer to track special moments until you meet someone special" />
+    <meta name="theme-color" content="#894df7" />
+    <title>Meet Me! - Romantic Countdown Timer</title>
+    
+    <!-- PWA Meta tags -->
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;700&display=swap" as="style" />
+    <link rel="preload" href="./audio/Kaleo.mp3" as="audio" />
   </head>
   <body>
-    <button class="example_a" align="center">
-      <a class="link" href="#" target="" rel="nofollow noopener">Music</a>
-    </button>
-    <button class="example_b" align="center">
-      <a class="link" href="#" target="" rel="nofollow noopener">Mute</a>
-    </button>
-    <div class="timer" id="timer-1">
-      <div class="box-rotate">
-        <p class="main"></p>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settings-panel" role="dialog" aria-labelledby="settings-title" aria-hidden="true">
+      <div class="settings-content">
+        <h2 id="settings-title">Customize Your Timer</h2>
+        
+        <div class="setting-group">
+          <label for="target-date">Target Date:</label>
+          <input type="datetime-local" id="target-date" />
+        </div>
+        
+        <div class="setting-group">
+          <label for="theme-select">Theme:</label>
+          <select id="theme-select">
+            <option value="romantic">Romantic Purple</option>
+            <option value="sunset">Sunset Orange</option>
+            <option value="ocean">Ocean Blue</option>
+            <option value="forest">Forest Green</option>
+          </select>
+        </div>
+        
+        <div class="setting-group">
+          <label for="background-url">Custom Background URL:</label>
+          <input type="url" id="background-url" placeholder="https://example.com/image.jpg" />
+        </div>
+        
+        <div class="setting-group">
+          <label for="volume-control">Music Volume:</label>
+          <input type="range" id="volume-control" min="0" max="100" value="50" />
+          <span id="volume-display">50%</span>
+        </div>
+        
+        <div class="settings-buttons">
+          <button type="button" class="btn btn-secondary" id="cancel-settings">Cancel</button>
+          <button type="button" class="btn btn-primary" id="save-settings">Save</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Control Buttons -->
+    <div class="control-panel" role="toolbar" aria-label="Timer controls">
+      <button class="control-btn music-btn" id="music-toggle" aria-label="Toggle music playback" aria-pressed="false">
+        <span class="btn-icon">🎵</span>
+        <span class="btn-text">Music</span>
+      </button>
+      
+      <button class="control-btn settings-btn" id="settings-toggle" aria-label="Open settings" aria-expanded="false">
+        <span class="btn-icon">⚙️</span>
+        <span class="btn-text">Settings</span>
+      </button>
+      
+      <button class="control-btn share-btn" id="share-timer" aria-label="Share timer">
+        <span class="btn-icon">📤</span>
+        <span class="btn-text">Share</span>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="timer-container">
+      <div class="animated-text-container">
+        <h1 class="main-heading" aria-live="polite">
           So...
           <span
             class="txt-rotate"
             data-period="3000"
-            data-rotate='[ "Meeting someone you can be yourself around and vibe with is the best feeling ever...", "The world suddenly seemed warmer, brighter and more welcoming when I met you. I hope I had the same effect on you.", "Meeting someone accidentally, then having them become a huge part of your life...", "Keep me updated when you’re meeting someone new, maybe I would want to join you as well.", "Enjoy life, keep on meeting someone new, keep living your life as if it is the end of it, go for it.", "“It’s a beautiful thing to meet someone who makes you forget your troubles.”", "“Stop putting your life on hold for someone special. You are someone SPECIAL!”", "“When life gives you someone very special, you don’t have to dream anymore.”", "“If you miss someone, that means you’re lucky. It means you had someone special in your life, someone worth missing.”", "“Don’t be afraid to go that extra mile for someone special, because that person will go the extra mile for you.” ― Ben Kalcher"]'
+            data-rotate='["Meeting someone you can be yourself around and vibe with is the best feeling ever...", "The world suddenly seemed warmer, brighter and more welcoming when I met you. I hope I had the same effect on you.", "Meeting someone accidentally, then having them become a huge part of your life...", "Keep me updated when you are meeting someone new, maybe I would want to join you as well.", "Enjoy life, keep on meeting someone new, keep living your life as if it is the end of it, go for it.", "It is a beautiful thing to meet someone who makes you forget your troubles.", "Stop putting your life on hold for someone special. You are someone SPECIAL!", "When life gives you someone very special, you do not have to dream anymore.", "If you miss someone, that means you are lucky. It means you had someone special in your life, someone worth missing.", "Do not be afraid to go that extra mile for someone special, because that person will go the extra mile for you."]'
+            aria-label="Rotating inspirational quotes about meeting someone special"
           ></span>
-      </p>
+        </h1>
       </div>
-      <div class="boxField">
-        <div class="field">
-          <span class="value" data-value="days">00</span>
-          <span class="label">Days</span>
+      
+      <div class="countdown-display" role="timer" aria-live="polite" aria-atomic="true">
+        <div class="time-field" data-unit="days">
+          <span class="time-value" data-value="days" aria-label="Days remaining">00</span>
+          <span class="time-label">Days</span>
         </div>
         
-        <div class="field">
-          <span class="value" data-value="hours">00</span>
-          <span class="label">Hours</span>
+        <div class="time-field" data-unit="hours">
+          <span class="time-value" data-value="hours" aria-label="Hours remaining">00</span>
+          <span class="time-label">Hours</span>
         </div>
         
-        <div class="field">
-          <span class="value" data-value="mins">00</span>
-          <span class="label">Minutes</span>
+        <div class="time-field" data-unit="mins">
+          <span class="time-value" data-value="mins" aria-label="Minutes remaining">00</span>
+          <span class="time-label">Minutes</span>
         </div>
         
-        <div class="field">
-          <span class="value" data-value="secs">00</span>
-          <span class="label">Seconds</span>
+        <div class="time-field" data-unit="secs">
+          <span class="time-value" data-value="secs" aria-label="Seconds remaining">00</span>
+          <span class="time-label">Seconds</span>
         </div>
-    </div>
-      <p class="footer">
-        ...when you meet someone, special, you'll know, your heart will beat
+      </div>
+      
+      <p class="footer-message" role="complementary">
+        ...when you meet someone special, you'll know, your heart will beat
         more rapidly and you'll smile for no reason
       </p>
+    </main>
+
+    <!-- Completion Effect -->
+    <div class="completion-effect" id="completion-effect" aria-hidden="true">
+      <div class="confetti-container"></div>
+      <div class="completion-message">
+        <h2>🎉 Time's Up! 🎉</h2>
+        <p>So... Have a wonderful meeting!</p>
+      </div>
     </div>
-    <div style="visibility: hidden">
-      <!-- Можна вибрати іншу пісню і підключити її через url -->
-      <audio src="./audio/Kaleo.mp3" loop="true" type="audio/mp3" />
+
+    <!-- Audio -->
+    <audio 
+      id="background-music" 
+      src="./audio/Kaleo.mp3" 
+      loop 
+      preload="metadata"
+      aria-label="Background music"
+    ></audio>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-spinner"></div>
+      <p>Loading your special moment...</p>
+    </div>
+
+    <!-- Notification for reduced motion users -->
+    <div class="reduced-motion-notice" role="alert" aria-live="assertive" style="display: none;">
+      Animations have been reduced based on your system preferences.
     </div>
   </body>
 </html>
