@@ -1,0 +1,41 @@
+{
+  "name": "Meet Me! - Romantic Countdown Timer",
+  "short_name": "Meet Me!",
+  "description": "A beautiful countdown timer for tracking special moments until you meet someone special",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#894df7",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "categories": ["lifestyle", "social"],
+  "screenshots": [
+    {
+      "src": "/screenshots/timer.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Set New Timer",
+      "url": "/?action=new",
+      "description": "Create a new countdown timer"
+    }
+  ]
+} 
